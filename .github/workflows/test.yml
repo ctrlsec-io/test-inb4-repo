@@ -5,11 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Install Semgrep
       run: |
-        curl --fail -LsSf https://semgrep.dev/install.sh | sh -s -- -b $HOME/bin
+        wget -qO- https://semgrep.dev/install.sh | sh -s -- -b $HOME/bin
         echo "$HOME/bin" >> $GITHUB_PATH
       env:
         PATH: ${{ runner.workspace }}/.bin:$PATH
