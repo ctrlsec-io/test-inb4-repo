@@ -17,5 +17,5 @@ jobs:
         - name: full scan
           run: |
             semgrep \
-              --config="p/default"
-              -- json
+              --config="p/default" \
+              --json
