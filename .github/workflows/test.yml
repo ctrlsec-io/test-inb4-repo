@@ -18,4 +18,12 @@ jobs:
           run: |
             semgrep \
               --config="p/default" \
-              --json
+              --json --output results.json
+
+        - name: send to inb4
+          run: |
+            curl --version
+          
+        - name: send
+          run: |
+            wget --version
