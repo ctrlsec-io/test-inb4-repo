@@ -5,3 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "test123"
+      # need a step for running semgrep SAST
+      # need a step for sending this data as JSON to a URL
+      - name: Install Semgrep
+      run: |
+        curl --fail -LsSf https://semgrep.dev/install.sh | sh -s -- -b $HOME/bin
+        echo "$HOME/bin" >> $GITHUB_PATH
+      env:
+        PATH: ${{ runner.workspace }}/.bin:$PATH
+      - name: Run Semgrep
+      run: semgrep --config=p/r2c.yaml
