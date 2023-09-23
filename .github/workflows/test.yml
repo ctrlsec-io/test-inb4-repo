@@ -6,3 +6,8 @@ jobs:
     container:
       # A Docker image with Semgrep installed. Do not change this.
       image: returntocorp/semgrep
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    
