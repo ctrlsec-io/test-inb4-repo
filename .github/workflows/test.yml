@@ -18,7 +18,7 @@ jobs:
           run: |
             semgrep \
               --config="p/default" \
-              --json --output results.json
+              --json --output semgrep-results.json
 
         - name: send to inb4
           run: |
@@ -26,5 +26,5 @@ jobs:
             -H "Content-Type: application/json" \
             -H "connection_name: semgrep-sast" \
             -H "service_name: test-service" \
-            -d "@results.json" \
+            -d "@semgrep-results.json" \
             https://ac50-2a02-c7c-bea7-8600-531-dd55-eef9-4b8b.ngrok-free.app/vulnerabilities
