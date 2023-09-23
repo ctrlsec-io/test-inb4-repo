@@ -1,20 +1,22 @@
 name: test actions
 on: [push]
 jobs:
-  test-job:
-    name: semgrep/ci 
-    # If you are self-hosting, change the following `runs-on` value: 
-    runs-on: ubuntu-latest
 
-    container:
-      # A Docker image with Semgrep installed. Do not change this.
-      image: returntocorp/semgrep
+  semgrep-full:
+      runs-on: ubuntu-latest
+      container:
+        image: returntocorp/semgrep
 
-    # Skip any PR created by dependabot to avoid permission issues:
-    if: (github.actor != 'dependabot[bot]')
+      steps:
 
-    steps:
-      # Fetch project source with GitHub Actions Checkout.
-      - uses: actions/checkout@v3
-      # Run the "semgrep ci" command on the command line of the docker image.
-      - run: semgrep ci
+        # step 1
+        - name: clone application source code
+          uses: actions/checkout@v3
+
+        # step 2
+        - name: full scan
+          run: |
+            semgrep \
+              --sarif --output report.sarif \
+              --metrics=off \
+              --config="p/default"
