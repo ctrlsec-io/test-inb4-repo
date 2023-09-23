@@ -5,14 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
 
-    - name: Install Semgrep
-      run: |
-        wget -qO- https://semgrep.dev/install.sh | sh -s -- -b $HOME/bin
-        echo "$HOME/bin" >> $GITHUB_PATH
-      env:
-        PATH: ${{ runner.workspace }}/.bin:$PATH
+    - name: Set up Semgrep
+      uses: returntocorp/setup-semgrep@v1
 
     - name: Run Semgrep
       run: semgrep --config=p/r2c.yaml
