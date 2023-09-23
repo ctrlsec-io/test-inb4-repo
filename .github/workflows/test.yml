@@ -3,12 +3,6 @@ on: [push]
 jobs:
   test-job:
     runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Set up Semgrep
-      uses: returntocorp/setup-semgrep@v1
-
-    - name: Run Semgrep
-      run: semgrep --config=p/r2c.yaml
+    container:
+      # A Docker image with Semgrep installed. Do not change this.
+      image: returntocorp/semgrep
