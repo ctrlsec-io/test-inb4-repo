@@ -27,4 +27,4 @@ jobs:
             -H "connection_name: semgrep-sast" \
             -H "service_name: test-service" \
             -d "@results.json" \
-            https://fb74-2a02-c7c-bea7-8600-531-dd55-eef9-4b8b.ngrok-free.app/vulnerabilities
+            https://ac50-2a02-c7c-bea7-8600-531-dd55-eef9-4b8b.ngrok-free.app/vulnerabilities
