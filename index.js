@@ -5,7 +5,7 @@ const port = 3000;
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-  res.send('Welcome to the vulnerable Express app!');
+  res.send('Welcome to the vulnerable Expresss app!');
 });
 
 app.post('/search', (req, res) => {
