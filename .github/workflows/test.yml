@@ -28,3 +28,8 @@ jobs:
             -H "service_name: test-service" \
             -d "@semgrep-results.json" \
             https://5290-2a02-c7c-bf5d-2600-187f-a2c-f3e2-8083.ngrok-free.app/vulnerabilities
+
+        - name: Run Snyk to check for vulnerabilities
+          uses: snyk/actions/node@master
+          env:
+            SNYK_TOKEN: ${{ secrets.SNYK_CI }}
