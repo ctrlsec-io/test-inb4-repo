@@ -22,7 +22,7 @@ jobs:
 
         - name: send to inb4
           run: |
-            curl -X POST -H "client_id: 53270aca-80e2-42c3-994c-0fea8fac760a" \
+            curl -X POST -H "client_id: 7d9495f5-37b8-4433-9709-1574850eb424" \
             -H "Content-Type: application/json" \
             -H "connection_name: semgrep-sast" \
             -H "service_name: core-api" \
