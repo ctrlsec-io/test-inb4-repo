@@ -20,16 +20,6 @@ jobs:
               --config="p/default" \
               --json --output semgrep-results.json
 
-        - name: send to ctrlsec.io
-          run: |
-            curl -X POST -H "client_id: 7d9495f5-37b8-4433-9709-1574850eb424" \
-            -H "Content-Type: application/json" \
-            -H "tool: semgrep-sast" \
-            -H "service: core-api" \
-            -H "X-Api-Token:${{ secrets.CTRLSEC_API_KEY }}" \
-            -d "@semgrep-results.json" \
-            https://dashboard.ctrlsec.io/vulnerabilities
-          
         - name: Run Snyk to check for vulnerabilities
           uses: snyk/actions/node@master
           env:
