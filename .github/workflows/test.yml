@@ -29,7 +29,7 @@ jobs:
             -H "X-Api-Token:${{ secrets.CTRLSEC_API_KEY }}" \
             -d "@semgrep-results.json" \
             https://dashboard.ctrlsec.io/vulnerabilities
-
+          
         - name: Run Snyk to check for vulnerabilities
           uses: snyk/actions/node@master
           env:
