@@ -24,8 +24,8 @@ jobs:
           run: |
             curl -X POST -H "client_id: 7d9495f5-37b8-4433-9709-1574850eb424" \
             -H "Content-Type: application/json" \
-            -H "connection_name: semgrep-sast" \
-            -H "service_name: core-api" \
+            -H "tool: semgrep-sast" \
+            -H "service: core-api" \
             -H "X-Api-Token:3f6f163b05e2d74a52fe5b3cfa972c9bb87d9b4e4a3355fff4b9f8c940740aec" \
             -d "@semgrep-results.json" \
             https://dashboard.ctrlsec.io/vulnerabilities
