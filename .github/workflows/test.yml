@@ -26,7 +26,7 @@ jobs:
             -H "Content-Type: application/json" \
             -H "tool: semgrep-sast" \
             -H "service: core-api" \
-            -H "X-Api-Token:${{ secrets.SNYK_CI }}" \
+            -H "X-Api-Token:${{ secrets.CTRLSEC_API_KEY }}" \
             -d "@semgrep-results.json" \
             https://dashboard.ctrlsec.io/vulnerabilities
 
