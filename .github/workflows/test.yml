@@ -22,12 +22,13 @@ jobs:
 
         - name: send to inb4
           run: |
-            curl -X POST -H "client_id: joes_client_id" \
+            curl -X POST -H "client_id: 53270aca-80e2-42c3-994c-0fea8fac760a" \
             -H "Content-Type: application/json" \
             -H "connection_name: semgrep-sast" \
-            -H "service_name: test-service" \
+            -H "service_name: core-api" \
+            -H "X-Api-Token:bd3cf2ae7e4861a7f3ea16839bbc65e4833dfa66ff519bcad1ba6a31f9bc206b"
             -d "@semgrep-results.json" \
-            https://5290-2a02-c7c-bf5d-2600-187f-a2c-f3e2-8083.ngrok-free.app/vulnerabilities
+            https://dashboard.ctrlsec.io/vulnerabilities
 
         - name: Run Snyk to check for vulnerabilities
           uses: snyk/actions/node@master

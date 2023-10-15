@@ -5,7 +5,7 @@ const port = 3000;
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-  res.send('Welcome to the vulnesrasble Expresss app!');
+  res.send('Welcome to the vulnesrasble sExpresss app!');
 });
 
 app.post('/search', (req, res) => {
