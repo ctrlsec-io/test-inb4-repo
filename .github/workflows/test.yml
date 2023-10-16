@@ -30,7 +30,7 @@ jobs:
             -d "@semgrep-results.json" \
             https://dashboard.ctrlsec.io/vulnerabilities
           
-        - name: Runs Snyk to check for vulnerabilities
+        - name: Running Snyk to check for vulnerabilities
           uses: snyk/actions/node@master
           env:
             SNYK_TOKEN: ${{ secrets.SNYK_CI }}
